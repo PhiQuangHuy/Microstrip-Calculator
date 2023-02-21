@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  /* background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fmarketing.istockphoto.com%2Fblog%2Fbackground-ideas%2F&psig=AOvVaw0z69LZzsEqUGcrac17eg92&ust=1635391058768000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNj3t87Q6fMCFQAAAAAdAAAAABAD"); */
+  background-image: linear-gradient(to bottom, purple, rgb(204, 90, 204));
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(248, 246, 241);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.page-header {
+  font-size: 3.5rem;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.page-header h1 {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.page-header i {
+  font-size: 5.5rem;
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: rgb(196, 55, 196);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 7rem;
+}
+
+.picture {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.picture img {
+  width: 50%;
+}
+
+.substrate-parameter-header {
+  font-size: 2rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.substrate-parameter-list {
+  font-size: 1.6rem;
+  padding: 3rem 3rem;
+  list-style: none;
+}
+
+.substrate-parameter-list li {
+  padding: 0.5rem 0;
+}
+
+.note {
+  width: 60%;
+  font-size: 1.2rem;
+  display: block;
+  color: red;
+  margin: auto;
+  text-align: center;
+}
+
+.main-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem 5rem;
+  font-size: 1.8rem;
+  list-style: none;
+}
+
+.main-list li {
+  flex: 0 0 33.333%;
+  margin: 0.5rem 0;
+  vertical-align: middle;
+}
+
+.main-list label {
+  display: inline-block;
+  min-width: 10rem;
+}
+
+.main-list input,
+.main-list select,
+.main-list-2 input,
+.main-list-2 select {
+  padding: 0.5rem;
+}
+
+.calculator-header {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.main-2 {
+  width: 80%;
+  margin: 3rem auto -1rem auto;
+}
+
+.main-list-2 {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: 1.8rem;
+  justify-content: space-between;
+}
+
+.main-list-2 li {
+  flex: 0 0 40%;
+  margin: 0.2rem 0;
+}
+
+.main-list-2 label {
+  min-width: 7rem;
+  display: inline-block;
+}
+
+.button {
+  text-align: center;
+}
+
+.button input {
+  padding: 0.5rem;
+  background-color: rgb(160, 58, 114);
+  border: 1px solid black;
+  border-radius: 3px;
+  color: rgb(44, 39, 39);
+}
+
+.button input:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+}
+
+.reference {
+  border-top: 1px solid gray;
+}
+
+.reference-header {
+  margin-top: 2.5rem;
+  margin-left: 2.5rem;
+  font-size: 2rem;
+}
+
+.reference-list {
+  font-size: 1.6rem;
+  text-decoration: none;
+  width: 80%;
+  margin: auto;
+  padding: 1rem 0;
+}
+
+.reference-list ul li a {
+  text-decoration: none;
+  padding: 0.5rem;
+  display: block;
+  color: blue;
+}
+
+footer {
+  background-color: rgb(20, 18, 18);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+#edt_msEr {
+  width: 13rem;
+}

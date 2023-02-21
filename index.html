@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Microstrip Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="page-header">
+        <div class="title">
+          <i class="fas fa-calculator"></i>
+          <div>
+            <h1>Microstrip</h1>
+            <h1>Calculator</h1>
+          </div>
+        </div>
+        <!-- <div>
+          <i class="fas fa-broadcast-tower"></i>
+        </div> -->
+        <img class="icon" src="./Reference/photosmile.vn_.jpg" alt="" />
+      </div>
+
+      <h4 class="substrate-parameter-header">Substrate Parameters</h4>
+      <ul class="substrate-parameter-list">
+        <li><strong>εr: </strong>Relative permittivity of the substrate.</li>
+        <li>
+          <strong>Tanδ: </strong>Loss tangent of the substrate. This parameter
+          is used for the loss calculations. The higher the value, the larger
+          the loss.
+        </li>
+        <li>
+          <strong>Rho: </strong>Conductor resistivity relative to copper. This
+          parameter is used for the loss calculations. When in doubt, use 1 for
+          copper, 0.946 for silver, or 1.45 for gold.
+        </li>
+        <li><strong>Height: </strong>Height of the substrate.</li>
+        <li>
+          <strong>Thickness: </strong>Thickness of the microstrip conductor.
+          This can be set to zero, but the calculated loss will not include
+          conductor losses.
+        </li>
+        <li>
+          <strong>Frequency: </strong>Frequency at which the microstrip
+          transmission line is analyzed or synthesized.
+        </li>
+      </ul>
+
+      <div class="picture">
+        <img
+          src="https://eng.libretexts.org/@api/deki/files/16222/m0082_fMicrostripCrossSection.png?revision=1&size=bestfit&width=600&height=211"
+          alt="Microstrip"
+        />
+      </div>
+
+      <ul class="main-list">
+        <li>
+          <label> εr:</label>
+          <input type="text" value="10" id="edt_msEr" />
+          <select name="" id="dielectric-material"></select>
+        </li>
+        <li>
+          <label> Tanδ:</label>
+          <input
+            type="text"
+            id="edt_msTand"
+            value="0.001"
+            class="form-control"
+          />
+        </li>
+        <li>
+          <label> Rho:</label>
+          <input type="text" id="edt_msRho" value="1" />
+          <select name="" id="metal-material"></select>
+        </li>
+        <li>
+          <label> Height:</label>
+          <input
+            type="text"
+            id="edt_msHeight"
+            value="25"
+            class="form-control"
+          />
+          <select name="" id="sel_msHeight"></select>
+        </li>
+        <li>
+          <label> Thickness: </label>
+          <input
+            type="text"
+            id="edt_msThickness"
+            value="1"
+            class="form-control"
+          />
+          <select name="" id="sel_msThickness"></select>
+        </li>
+        <li>
+          <label> Frequency: </label>
+          <input type="text" id="edt_msFreq" value="10" class="form-control" />
+          <select name="" id="sel_msFreq"></select>
+        </li>
+      </ul>
+
+      <h2 class="calculator-header">Analysis/Synthesis Values</h2>
+
+      <div class="main-2">
+        <ul class="main-list-2">
+          <li>
+            <label> Width:</label>
+            <input
+              type="text"
+              id="edt_msWidth"
+              value="25"
+              class="form-control"
+            />
+            <select name="" id="sel_msWidth"></select>
+          </li>
+          <li>
+            <label> Zo:</label>
+
+            <input type="text" id="edt_msZo" value="50" class="form-control" />
+
+            <span>Ohms</span>
+          </li>
+          <li>
+            <label> Length:</label>
+
+            <input
+              type="text"
+              id="edt_msLength"
+              value="111"
+              class="form-control"
+            />
+            <select name="" id="sel_msLength"></select>
+          </li>
+          <li>
+            <label> Angle:</label>
+            <input
+              type="text"
+              id="edt_msAngle"
+              value="90"
+              class="form-control"
+            />
+            <span>degrees</span>
+          </li>
+          <li>
+            <label> εeff:</label>
+            <input type="text" id="edt_msEeff" class="form-control" />
+          </li>
+          <li>
+            <label> Loss:</label>
+            <input type="text" id="edt_msLoss" class="form-control" />
+            <span>dB</span>
+          </li>
+          <li class="button">
+            <input
+              id="btn_ms_analyze"
+              type="button"
+              value="Analyze"
+              class="btn btn-primary btn-block"
+            />
+          </li>
+          <li class="button">
+            <input
+              id="btn_ms_synthesize"
+              type="button"
+              value="Synthesize"
+              class="btn btn-primary btn-block"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <ul class="substrate-parameter-list">
+        <li>
+          <strong>εeff</strong> is the calculated effective dielectric constant
+          of the microstrip line due to the nonhomogeneous nature of the
+          structure (i.e., the structure is made up of two dielectric materials:
+          air and the substrate material).
+        </li>
+        <li>
+          <strong>Loss</strong> is calculated as a combination of dielectric
+          loss and conductor loss at the analyzed/synthesized length. If the
+          conductor thickness is set to zero, the loss will only include the
+          dielectric loss component.
+        </li>
+      </ul>
+
+      <p class="note">
+        May be some bug with the result can happen when you convert dimensions.
+        Please reload the page after calculating to get the accurate result or
+        use mils dimension when calculating.
+      </p>
+
+      <div class="reference">
+        <h2 class="reference-header">Reference</h2>
+        <div class="reference-list">
+          <ol>
+            <li>
+              <a
+                href="./Reference/442262271-Accurate-Models-for-Microstrip-Computeraided-Design.pdf"
+                >"Accurate Models for Microstrip Computer Aided Design", E.
+                Hammerstad and O. Jensen, 1980 IEEE MTT-S International
+                Microwave Symposium Digest</a
+              >
+            </li>
+            <li>
+              <a
+                href="./Reference/Computer-aided design of microwave circuits  by K.C. Gupta, Ramesh Garg, Rakesh Chadha. (z-lib.org).pdf"
+                >"Computer-Aided Design of Microwave Circuits", K.C. Gupta,
+                1981</a
+              >
+            </li>
+            <li>
+              <a
+                href="./Reference/Hoffmann R K, Handbook of Microwave Integrated Circuits, Artech- By EasyEngineering.net.pdf"
+                >"Handbook of Microwave integrated Circuits", R.K. Hoffmann,
+                1987</a
+              >
+            </li>
+            <li>
+              <a href="./Reference/10.1.1.247.5082.pdf"
+                >"Analysis of Five Different Dielectric Substrates on Microstrip
+                Patch Antenna", Anzar Khan, Rajesh Nema, 2012</a
+              >
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <footer>
+        <p>Project I</p>
+      </footer>
+    </main>
+
+    <script type="module" src="./Javascript/script.js"></script>
+  </body>
+</html>
